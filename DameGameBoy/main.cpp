@@ -40,6 +40,10 @@ int main(int argc, char *argv[])
         std::cout << "ROM path: " << rom_path << std::endl << std::endl;
         GameBoy damegameboy = GameBoy();
 
+        if (!damegameboy.load_cartridge(rom_path)) {
+            std::cout << "Rom read failed!" << std::endl;
+        }
+
         return 0;
     }
 }

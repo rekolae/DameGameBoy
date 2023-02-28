@@ -1,8 +1,12 @@
 QT += quick
 
 SOURCES += \
+        hw/cartridge.cpp \
         hw/cpu.cpp \
         hw/gameboy.cpp \
+        hw/memory_bank_controller.cpp \
+        hw/ram.cpp \
+        hw/rom.cpp \
         main.cpp
 
 resources.files = ui/main.qml
@@ -21,5 +25,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    hw/cartridge.hh \
     hw/cpu.hh \
-    hw/gameboy.hh
+    hw/gameboy.hh \
+    hw/memory_bank_controller.hh \
+    hw/ram.hh \
+    hw/rom.hh
