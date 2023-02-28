@@ -13,7 +13,7 @@ ApplicationWindow {
     minimumWidth: 640
     minimumHeight: 480
 
-    title: "DameGameBoy"
+    title: "DameGameBoy " + app_version
 
     Text {
         id: helloText
@@ -79,7 +79,7 @@ ApplicationWindow {
             spacing: 5
 
             Text {
-                text: "Version 0.0.0"
+                text: "Version " + app_version
                 color: parent.palette.text
                 Layout.leftMargin: 5
                 Layout.rightMargin: 5

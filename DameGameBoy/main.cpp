@@ -1,20 +1,23 @@
+#include "hw/gameboy.hh"
+
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+
 #include <iostream>
 #include <vector>
 
+#define VERSION "0.0.0"
 
 int main(int argc, char *argv[])
 {
     bool enable_gui = true;
-    std::vector<std::string> args(argv, argv+argc);
-    for (const std::string &arg : args) {
-        if (arg == "--no-gui") {
-            enable_gui = false;
-            break;
-        }
-    }
+    std::string rom_path = "";
 
+    if (argc > 1) {
+        enable_gui = false;
+        rom_path = argv[1];
+    }
 
     if (enable_gui) {
         QGuiApplication app(argc, argv);
@@ -26,11 +29,17 @@ int main(int argc, char *argv[])
             if (!obj && url == objUrl)
                 QCoreApplication::exit(-1);
         }, Qt::QueuedConnection);
+        engine.rootContext()->setContextProperty("app_version", QString(VERSION));
         engine.load(url);
 
         return app.exec();
-    } else {
-        std::cout << "GUI disabled" << std::endl;
+    }
+
+    else {
+        std::cout << std::endl << "GUI disabled" << std::endl;
+        std::cout << "ROM path: " << rom_path << std::endl << std::endl;
+        GameBoy damegameboy = GameBoy();
+
         return 0;
     }
 }
