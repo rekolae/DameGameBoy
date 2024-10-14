@@ -1,10 +1,10 @@
 #ifndef GAMEBOY_HH
 #define GAMEBOY_HH
 
-#include "hw/cpu.hh"
-#include "hw/cartridge.hh"
-#include "hw/ram.hh"
-#include "hw/rom.hh"
+#include "cpu.hh"
+#include "cartridge.hh"
+#include "ram.hh"
+#include "rom.hh"
 
 #include <QObject>
 
@@ -18,11 +18,11 @@ public:
 
     bool load_cartridge(const std::string &path);
 
-
 signals:
 
 
 private:
+
     Cpu* cpu_;
 
     Cartridge* cartridge_;

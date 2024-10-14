@@ -8,7 +8,7 @@ Rom::Rom(std::ifstream& rom_stream)
 {
     rom_bank bank(ROM_BANK_SIZE);
 
-    while(rom_stream.read(reinterpret_cast<char *>(bank.data()), ROM_BANK_SIZE)) {
+    while(rom_stream.read(reinterpret_cast<char*>(bank.data()), ROM_BANK_SIZE)) {
         rom_data_.push_back(bank);
     }
 

@@ -1,4 +1,4 @@
-#include "hw/gameboy.hh"
+#include "gameboy.hh"
 
 #include <iostream>
 #include <fstream>
@@ -7,6 +7,7 @@
 
 GameBoy::GameBoy(QObject *parent) : QObject{parent}
 {
+    /*
     std::cout << "Initializing DameGameBoy" << std::endl;
     std::cout << " > Initializing device RAM" << std::endl;
     init_ram();
@@ -15,10 +16,13 @@ GameBoy::GameBoy(QObject *parent) : QObject{parent}
     init_cpu();
 
     std::cout << "Initialization complete!" << std::endl;
+    */
 }
+
 
  GameBoy::~GameBoy()
 {
+    /*
     delete cpu_;
     delete cartridge_;
     delete wram_;
@@ -26,8 +30,10 @@ GameBoy::GameBoy(QObject *parent) : QObject{parent}
     delete oam_;
     delete io_;
     delete hram_;
+    */
 }
 
+/*
 bool GameBoy::load_cartridge(const std::string &path)
 {
     std::ifstream rom_stream(path, std::ios::binary);
@@ -59,3 +65,4 @@ void GameBoy::init_cpu()
 {
     cpu_ = new Cpu();
 }
+*/
